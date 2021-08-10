@@ -9,12 +9,15 @@ const getSomething = ()=> {
     }) 
 }
 
-const system = () => {
+const system = async () => {
     console.log('init')
-    getSomething().then(some => {
-        console.log(`Something is ${some}`)
-        console.log('end')
-    })
+    const some = await getSomething()
+    // getSomething().then(some => {
+        // console.log(`Something is ${some}`)
+        // console.log('end')
+    // })
+    console.log(`Something is ${some}`)
+    console.log('end')
        
     }
     
