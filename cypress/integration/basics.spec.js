@@ -6,7 +6,7 @@ describe('Cypress basics', () =>{
 
         // const title = cy.title()
         // console.log(title)
-        cy.pause()
+        // cy.pause()
 
         cy.title().should('be.equal', 'Campo de Treinamento')
         //cy.title().debug().should('contain', 'Campo')
@@ -16,6 +16,10 @@ describe('Cypress basics', () =>{
             .and('contain', 'Campo')
             //todo imprimir o log no console
             //escrever um campo de texto
+        
+        cy.title().then(title => {
+            console.log(title)
+        }) 
 
     })
 
