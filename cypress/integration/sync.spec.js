@@ -66,7 +66,10 @@ describe('Esperas', () => {
         cy.get('#buttonListDOM').then($el => {
             // console.log($el)
             expect($el).to.have.length(1)
-        }).and('have.id', 'buttonListDOM')
+            cy.get('#buttonList')
+        })//.and('eq', 2)
+        //.and('not.have.id', 'buttonListDOM')
+        // novas buscas dentro do blooc then, should tem retentativas, should nao troca o retorno
     })    
 
 
