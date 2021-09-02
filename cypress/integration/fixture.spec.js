@@ -1,26 +1,18 @@
 /// <reference types="cypress" />
 
 describe('Fixtures testes', () => {
-    // before(() => {
-        // cy.visit('https://www.wcaquino.me/cypress/componentes.html')
-    // })
-// 
-    // beforeEach(() =>{
-        // cy.reload()
-    // })
 
-    it('fixture file', () => {
+    it('fixture file', function() {
         cy.visit('https://www.wcaquino.me/cypress/componentes.html')
-        cy.fixture('userData').as('usuario').then((0 => {
-            
-        }))
-
-        cy.get('#formNome').type()
-        cy.get('#formSobrenome').type()
-        cy.get('#formSobrenome').type()
-        cy.get('[name=formSexo][value=F]').check()
-        cy.get('[name=formComidaFavorita][value=pizza]').check()
-
+        cy.fixture('userData').as('usuario').then(() => {
+            cy.get('#formNome').type(this.usuario.nome)
+            cy.get('#formSobrenome').type(this.usuario.sobrenome)
+            cy.get(`[name=formSexo][value=${this.usuario.sexo}]`).click()
+            cy.get(`[name=formComidaFavorita][value=${this.usuario.comida}]`).click()
+            cy.get('#formEscolaridade').select(this.usuario.escolaridade)
+            cy.get('#formEsportes').select(this.usuario.esportes)
+        })
+            cy.get('#formCadastrar').click()
+            cy.get('#resultado').should('contain.text', 'Cadastrado!')
     })
-
-})    
+})
