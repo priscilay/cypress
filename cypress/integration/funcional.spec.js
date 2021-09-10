@@ -49,7 +49,7 @@ describe('Deve testar a nivel funcional', () => {
         cy.xpath(loc.EXTRATO.FN_XP_BUSCA_ELEMENTO('teste movimentacao', '134')).should('exist')
     })
 
-    it.only('Deve pegar o saldo', () => {
+    it('Deve pegar o saldo', () => {
         cy.get(loc.MENU.HOME).click()
         cy.xpath(loc.SALDO.FN_XP_SALDO_CONTA('Conta para saldo')).should('contain', '534,00')
         cy.get(loc.MENU.EXTRATO).click()
@@ -67,7 +67,8 @@ describe('Deve testar a nivel funcional', () => {
     })
 
 
-
-
-
 })
+
+// npm run cypress:run -- --spec cypress/integration/funcional.spec.js --headed --no-exit
+// npm run cypress:run -- --spec cypress/integration/funcional.spec.js --browser chrome
+//  npm run cypress:run -- --spec cypress/integration/conceitos/**/*
