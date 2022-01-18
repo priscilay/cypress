@@ -19,3 +19,20 @@ module.exports = (on, config) => {
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
 }
+
+const allureWriter = require('@shelex/cypress-allure-plugin/writer');
+// import allureWriter from "@shelex/cypress-allure-plugin/writer";
+
+module.exports = (on, config) => {
+    allureWriter(on, config);
+    return config;
+};
+
+
+// npx cypress run --env allure=true
+//npx - baixa pacote temporariamente
+///cypress run - executa os testes no modo headless
+//--config video=false - nao precisa gerar um video
+// --env allure=true
+//allure generate allure-results - cria basta para ter um relatorio dashboard
+//allure generate allure-report - executa a pasta criada para criar o deshboard

@@ -16,11 +16,17 @@
 // Import commands.js using ES2015 syntax:
 import './commands'
 require('cypress-xpath')
+import '@shelex/cypress-allure-plugin';
+require('@shelex/cypress-allure-plugin');
+
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 
 Cypress.SelectorPlayground.defaults({
     selectorPriority: ['data-wc','data-cy', 'data-test', 'id', 'class', 'attributes', 'data-testid', 'tag', 'nth-child'],
-  })
+  }
+  
+  
+  )
 
